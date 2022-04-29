@@ -1,6 +1,6 @@
 # UCI adult example from Zhang et al, 2018, but with openml dataset 1590
 # %%
-from fairlearn.adversarial import AdversarialFairness
+from fairlearn.adversarial import AdversarialFairnessClassifier
 from fairlearn.metrics import MetricFrame, selection_rate
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
@@ -104,7 +104,7 @@ from math import sqrt
 def update_alpha(model, step):
     model.alpha = sqrt(step)
 
-model = AdversarialFairness(
+model = AdversarialFairnessClassifier(
     predictor_model=[],
     adversary_model=adversary_model,
     predictor_optimizer=optimizer_constructor,

@@ -85,7 +85,7 @@ class PredictorModel(torch.nn.Module):
 
 predictor_model = PredictorModel()
 
-from fairlearn.adversarial import AdversarialFairness
+from fairlearn.adversarial import AdversarialFairnessRegressor
 
 def validate(model, step):
     if step % 100: return
@@ -102,7 +102,7 @@ def validate(model, step):
 #     return optim
 
 
-model = AdversarialFairness(
+model = AdversarialFairnessRegressor(
     predictor_model=predictor_model,
     adversary_model=[],
     learning_rate=2**(-16),

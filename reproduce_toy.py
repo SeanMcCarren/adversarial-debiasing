@@ -1,6 +1,6 @@
 # %%
 from numpy import random
-from fairlearn.adversarial import AdversarialFairness
+from fairlearn.adversarial import AdversarialFairnessClassifier
 from fairlearn.metrics import MetricFrame, selection_rate
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
@@ -38,7 +38,7 @@ import torch
 def get_opt(model):
     return torch.optim.Adam(model.parameters(), lr=0.01, weight_decay=0.01)
 
-model = AdversarialFairness(
+model = AdversarialFairnessClassifier(
     predictor_model=[],
     adversary_model=[],
     predictor_optimizer=get_opt,
